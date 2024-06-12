@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>禾青醫電 BodyGo 登入頁</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+      html,
+      body {
+        background-image: linear-gradient(120deg, #487eb0, #fbc531);
+        overflow: hidden;
+      }
+
+      .container {
+        background-color: rgba(140, 142, 142, 0.8);
+        width: 70vw;
+        height: 80vh;
+
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(17, 39, 59, 0.8);
+        border: 1px solid rgba(17, 39, 59, 1);
+        overflow: hidden;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+      }
+
+      /* .container {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.9);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -30%);
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(17, 39, 59, 0.8);
+        border: 1px solid rgba(17, 39, 59, 1);
+        overflow: hidden;
+        box-sizing: border-box;
+        opacity: 0;
+        transition: 1s;
+      } */
+
+      .container .leftLogo {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        /* background-color: #fbc531; */
+        position: absolute;
+        left: 5px;
+        top: 5px;
+        animation: jumping 2s infinite;
+      }
+
+      @keyframes jumping {
+        0% {
+          transform: translate3d(0, 0, 0);
+          text-shadow: rgba(255, 255, 255, 0.4) 0 0 0.05em;
+        }
+        100% {
+          transform: translate3d(0, -0.2em, 0);
+          text-shadow: rgba(255, 255, 255, 0.4) 0 0.5em 0.175em;
+        }
+      }
+      .container .leftLogo img {
+        width: 25px;
+        height: 25px;
+        padding: 2px 2px;
+      }
+      .container .leftLogo p {
+        text-align: center;
+        font-size: 0.8rem;
+        padding-top: 6px;
+        color: white;
+      }
+      .container .login-box {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        margin-top: 10px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .container .login-box .title {
+        margin-top: 45px;
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .container .login-box .input {
+        width: 80%;
+        height: 10%;
+        /* background-color: #fbc531; */
+      }
+      .container .login-box .input input,
+      button,
+      select {
+        width: 100%;
+        height: 100%;
+        border-radius: 45px;
+        border: 3px solid black;
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.4);
+        color: #fff;
+        caret-color: white;
+        cursor: pointer;
+      }
+      .container .login-box .input .dateBtn {
+        color: rgba(64, 64, 64, 0.8);
+      }
+      .container .login-box .input .datesel {
+        color: rgba(64, 64, 64, 0.8);
+        text-align: center;
+      }
+      select:required:invalid {
+        color: #fff;
+      }
+      option[value=""][disabled] {
+        display: none;
+      }
+      option {
+        color: #676767;
+      }
+      ::placeholder {
+        color: rgba(64, 64, 64, 0.8);
+      }
+
+      .container .footer {
+        position: relative;
+        width: 100%;
+        height: 200px;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+      }
+
+      .container .footer .LogoImg {
+        /* background-color: #fbc531; */
+
+        margin-bottom: 5px;
+        width: 120px;
+        height: 120px;
+        display: block;
+        animation: rotateing 5s infinite;
+      }
+      @keyframes rotateing {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .container .footer .LogoImg img {
+        width: 120px;
+        height: 120px;
+      }
+      .container .footer .change-box {
+        height: 100px;
+        width: 35%;
+
+        /* margin-top: 50px; */
+
+        /* background-color: black; */
+        /* background-color: rgb(235, 90, 11); */
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        align-items: end;
+      }
+
+      .container .footer .change-box #nxt-btn.start {
+        display: block;
+        animation: moving 1s 1;
+      }
+
+      .container .footer .change-box #nxt-btn.off {
+        animation-name: none;
+        display: none;
+      }
+      .container .footer .change-box span {
+        width: 80px;
+        height: 25px;
+        background: #4d4d4d;
+        color: #fff;
+        margin-right: 5px;
+        padding-top: 7%;
+        border-radius: 10px;
+        display: none;
+        font-size: 0.7rem;
+      }
+      @keyframes moving {
+        0% {
+          transform: translate3d(0, 0, 0);
+        }
+        100% {
+          transform: translate3d(0, -1em, 0);
+        }
+      }
+      .container .sign-box {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        margin-top: 10px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        font-size: 0.8rem;
+
+        display: none;
+      }
+      .container .sign-box .title {
+        padding-top: 50px;
+        margin-left: 20px;
+        color: white;
+      }
+      .container .sign-box .input {
+        color: white;
+        padding: 10px 20px;
+      }
+      .container .sign-box .lawcheckclass {
+        color: white;
+
+        margin-left: 20px;
+        margin-top: 5px;
+      }
+      .container .sign-box .lawcheckclass label {
+        display: block;
+
+        margin-top: 5px;
+        margin-left: 40px;
+      }
+      .container .sign-box .clickable {
+        margin-top: 5px;
+        margin-left: 8px;
+      }
+      .container .sign-box .btn {
+        width: 100px;
+        height: 30px;
+      }
+
+      input[type="checkbox"] {
+        transform: scale(1.5);
+      }
+      .container .sign-box .btn #uploadBtn {
+        background: #4d4d4d;
+        color: #fff;
+        border-radius: 10px;
+        text-align: center;
+        width: 80%;
+        height: 70%;
+
+        margin-left: 20px;
+        display: block;
+        padding-top: 5px;
+        cursor: pointer;
+        display: none;
+      }
+      .container .sign-box .btn #uploadBtn.start {
+        display: block;
+        animation: moving 1s 1;
+      }
+
+      .container .sign-box .btn #uploadBtn.off {
+        animation-name: none;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="leftLogo" id="test">
+        <img src="logo_禾青.png" alt="" />
+        <p>禾青醫電有限公司</p>
+      </div>
+      <div class="login-box">
+        <div class="title">BodyGo Login</div>
+        <div class="input">
+          <input type="text" id="name-txt" placeholder="填入您的使用者名稱" />
+        </div>
+        <div class="input">
+          <button name="databtn" class="dateBtn" id="datepicker">
+            填入您的生日
+          </button>
+        </div>
+        <div class="input">
+          <input
+            type="number"
+            min="130"
+            max="250"
+            step="0.5"
+            inputmode="numeric"
+            id="inputHeight"
+            placeholder="請輸入您的身高 CM"
+          />
+        </div>
+        <div class="input">
+          <input
+            type="number"
+            min="30"
+            max="150"
+            step="0.5"
+            inputmode="numeric"
+            id="inputWeight"
+            placeholder="請輸入您的體重 KG"
+          />
+        </div>
+        <div class="input">
+          <select required class="datesel" id="sex-btn">
+            <option value="" disabled selected>請選擇您的性別</option>
+            <option value="1">男</option>
+            <option value="2">女</option>
+            <option value="3">其他</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="sign-box">
+        <div class="title">
+          <u><b>測試前須知</b></u>
+        </div>
+        <div class="input">
+          <p>
+            本人願意免除在本活動的導師、工作人員 (全部統稱「禾青醫電」) 的責任。
+            本人明白活動牽涉體能運動，據本人所知悉，並無任何健康或其他理由導致本人不宜參加是次活動。
+            本人健康狀況良好， 並無隱瞞任何既有之健康或心理問題或過敏症。
+            本人願意接納及完全承擔一切風險及危險，以及風險及危險可能造成的人身傷害、死亡、財物損毁或
+            損失。免除「禾青醫電」就本人或本人家屬因本人參與活動而基於任何原因所蒙受或招致的任何風險。
+          </p>
+        </div>
+        <!--
+             <div class="LogoImg2">
+            <img src="LintBot頭像.png" id="logiimg_id_2" />
+          </div>
+          -->
+
+        <div class="lawcheckclass">
+          <p>userId:<span id="userId"></span></p>
+          <p>displayName:<span id="displayName"></span></p>
+          <input
+            type="checkbox"
+            name="checkBoxLaw"
+            value="14"
+            class="clickable"
+            id="lawCheck"
+            style="float: left"
+            onchange="lawcheckOnChangeHandler(this)"
+          />
+          <label>已詳閱並同意以上內容</label>
+        </div>
+        <div class="btn">
+          <span class="sign-btn" id="uploadBtn" onclick="uploadLineBot()"
+            >上傳</span
+          >
+        </div>
+      </div>
+      <div class="footer">
+        <div class="LogoImg">
+          <img src="LIFF_Logo.png" />
+        </div>
+        <div class="change-box login-change">
+          <div class="change-btn toSign">
+            <span id="nxt-btn">下一頁</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <link rel="stylesheet" type="text/css" href="css/pikaday.css" />
+    <script type="text/javascript" src="js/pikaday.js"></script>
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+  </body>
+</html>
