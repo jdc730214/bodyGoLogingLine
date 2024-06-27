@@ -1,0 +1,1 @@
+azure->建立 Web 應用程式->靜態web應用程式->github->url->填至line DEVELOPE
